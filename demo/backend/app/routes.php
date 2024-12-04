@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Application\Actions\StressAction;
 use App\Application\Actions\User\CreateUserAction;
 use App\Application\Actions\User\DeleteUserAction;
 use App\Application\Actions\User\ListUsersAction;
@@ -21,6 +22,8 @@ return function (App $app) {
         $response->getBody()->write('Hello world!');
         return $response;
     });
+
+    $app->get('/stress', StressAction::class);
 
     $app->group('/users', function (Group $group) {
         $group->get('', ListUsersAction::class);
