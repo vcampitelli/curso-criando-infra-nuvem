@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: demo/backend
+    destination: /var/www/html
+permissions:
+  - object: /var/www/html
+    owner: nginx
+    group: nginx
+hooks:
+  BeforeInstall:
+    - location: demo/backend/scripts/env-vars-inject.sh
+      timeout: 300
+  AfterInstall:
+    - location: demo/backend/scripts/install-prod.sh
+      timeout: 300
