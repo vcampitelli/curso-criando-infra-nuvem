@@ -332,6 +332,7 @@ img {
 li + li {
   margin-top: 0.25em;
 }
+li > ol,
 li > ul {
   font-size: 0.9em;
 }

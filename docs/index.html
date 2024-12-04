@@ -484,32 +484,32 @@
                                 API: API Gateway
                             </li>
                             <li class="fragment" data-fragment-index="1">
-                                Armazenamento: <span class="fragment highlight-blue" data-fragment-index="15">S3</span>,
+                                Armazenamento: <span class="fragment highlight-blue" data-fragment-index="14">S3</span>,
                                 EFS
                             </li>
                             <li class="fragment" data-fragment-index="2">
                                 Bancos de Dados:
-                                <span class="fragment highlight-blue" data-fragment-index="15">RDS</span>,
+                                <span class="fragment highlight-blue" data-fragment-index="14">RDS</span>,
                                 DocumentDB, MemoryDB
                             </li>
                             <li class="fragment" data-fragment-index="3">
-                                CDN: <span class="fragment highlight-blue" data-fragment-index="15">CloudFront</span>
+                                CDN: <span class="fragment highlight-blue" data-fragment-index="14">CloudFront</span>
                             </li>
                             <li class="fragment" data-fragment-index="4">
                                 Configurações:
-                                <span class="fragment highlight-blue" data-fragment-index="15">Systems Manager</span>
+                                <span class="fragment highlight-blue" data-fragment-index="14">Systems Manager</span>
                             </li>
                             <li class="fragment" data-fragment-index="5">
                                 Containerização: ECS, EKS
                             </li>
                             <li class="fragment" data-fragment-index="6">
-                                DNS: <span class="fragment highlight-blue" data-fragment-index="15">Route 53</span>
+                                DNS: <span class="fragment highlight-blue" data-fragment-index="14">Route 53</span>
                             </li>
                             <li class="fragment" data-fragment-index="7">
                                 Desenvolvimento:
                                 CodeBuild,
                                 CodeCommit,
-                                <span class="fragment highlight-blue" data-fragment-index="15">CodeDeploy</span>,
+                                <span class="fragment highlight-blue" data-fragment-index="14">CodeDeploy</span>,
                                 CodePipeline
                             </li>
                             <li class="fragment" data-fragment-index="8">
@@ -519,21 +519,17 @@
                                 Monitoramento: CloudWatch
                             </li>
                             <li class="fragment" data-fragment-index="10">
-                                Mídia: MediaConvert, MediaLive
+                                Processamento: <span class="fragment highlight-blue" data-fragment-index="14">EC2</span>
                             </li>
                             <li class="fragment" data-fragment-index="11">
-                                Processamento: <span class="fragment highlight-blue" data-fragment-index="15">EC2</span>
+                                Provisionamento: CloudFormation
                             </li>
                             <li class="fragment" data-fragment-index="12">
-                                Provisionamento:
-                                <span class="fragment highlight-blue" data-fragment-index="15">CloudFormation</span>
-                            </li>
-                            <li class="fragment" data-fragment-index="13">
-                                Segurança: <span class="fragment highlight-blue" data-fragment-index="15">IAM</span>,
+                                Segurança: <span class="fragment highlight-blue" data-fragment-index="14">IAM</span>,
                                 KMS
                             </li>
-                            <li class="fragment" data-fragment-index="14">
-                                Serverless: <span class="fragment highlight-blue" data-fragment-index="15">Lambda</span>
+                            <li class="fragment" data-fragment-index="13">
+                                Serverless: Lambda
                             </li>
                         </ul>
                     </section> <!-- Alguns serviços -->
@@ -625,7 +621,12 @@
                     <section>
                         <h1 class="subtitle">Amazon Web Services</h1>
                         <h2>Prática</h2>
-                        <p>Vamos criar uma conta na AWS, acessá-la e entender os principais conceitos de navegação</p>
+                        <p>
+                            Vamos criar uma conta na AWS, acessá-la e entender os principais conceitos de navegação
+                        </p>
+                        <a href="https://console.aws.amazon.com/" target="_blank" rel="noopener" class="reference">
+                            Console AWS
+                        </a>
                     </section>
                     <section>
                         <h1 class="subtitle">Amazon Web Services</h1>
@@ -682,18 +683,18 @@
                         <h3>Entidades</h3>
 
                         <div class="mb-2">
-                            <h3 class="mb-0">Função <em>(role)</em></h3>
-                            <p>
-                                Identidade que também pode receber permissões e que permite que usuários a incorpore
-                                para receber o acesso desejado
-                            </p>
-                        </div>
-
-                        <div class="mb-2">
                             <h3 class="mb-0">Política <em>(policy)</em></h3>
                             <p>
                                 Conjunto de permissões permitindo ou negando o acesso à elas, que podem ser aplicadas a
                                 usuários, grupos de usuários ou funções
+                            </p>
+                        </div>
+
+                        <div class="mb-2">
+                            <h3 class="mb-0">Função <em>(role)</em></h3>
+                            <p>
+                                Identidade que também pode receber permissões e que permite que usuários a incorpore
+                                para receber o acesso desejado
                             </p>
                         </div>
 
@@ -1173,6 +1174,575 @@
                     </section>
                 </section> <!-- Arquitetura do frontend -->
 
+                <section> <!-- EC2 -->
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Computação</h2>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Computação</h2>
+                        <p>
+                            Para executar o nosso <em>backend</em>, precisamos de uma plataforma de computação
+                            <em>("servidor")</em>, como o <strong>AWS EC2</strong> <em>(Elastic Compute Cloud)</em>
+                        </p>
+                        <a href="https://aws.amazon.com/ec2/" class="reference" target="_blank" rel="noopener">
+                            aws.amazon.com/ec2
+                        </a>
+                    </section>
+                    <section>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; EC2</h1>
+                        <h2>Definição</h2>
+                        <p>
+                            O <em>Amazon Elastic Compute Cloud</em> é uma plataforma de computação mais ampla e
+                            profunda, com mais de 500 tipos de instâncias e opções de processador, armazenamento, rede e
+                            sistema operacional para ajudá-lo a atender melhor às necessidades de sua carga de trabalho
+                        </p>
+
+                        <a href="https://aws.amazon.com/ec2/" class="reference" target="_blank" rel="noopener">
+                            aws.amazon.com/ec2
+                        </a>
+                    </section>
+                    <section>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; EC2</h1>
+                        <h2><em>Security Group</em></h2>
+                        <blockquote>
+                            Um grupo de segurança atua como firewall virtual para as instâncias do EC2 visando controlar
+                            o tráfego de entrada e de saída. As regras de entrada controlam o tráfego de entrada para a
+                            instância e as regras de saída controlam o tráfego de saída da instância. Ao executar sua
+                            instância, é possível especificar um ou mais grupos de segurança.
+                        </blockquote>
+
+                        <a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-security-groups.html"
+                           class="reference" target="_blank" rel="noopener">
+                            Grupos de segurança do Amazon EC2 para as instâncias do EC2
+                        </a>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; EC2</h1>
+                        <h2>Prática</h2>
+                        <ol>
+                            <li>
+                                Antes de executarmos uma instância, preciso compartilhar com vocês a
+                                <a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/AMIs.html">
+                                    imagem de máquina</a> preparada para rodar nosso <em>backend</em>, então cole o ID
+                                da sua conta AWS <em>(que pode ser visualizado clicando em seu usuário no canto direito
+                                superior da tela)</em> em nossa planilha
+                            </li>
+                            <li>Selecione o serviço <kbd>EC2</kbd> no painel da AWS</li>
+                            <li>
+                                Em seguida, clique em <kbd lang="en">Launch instance</kbd><kbd lang="pt">Executar
+                                instância</kbd>
+                            </li>
+                            <li>
+                                Escolha um nome descritivo para sua instância, que irá ajudar a identificar a máquina
+                                facilmente no relatório
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Application and OS Images (Amazon Machine Image)</kbd><kbd
+                                    lang="pt">Imagens de aplicação e de sistema operacional (imagem de máquina da
+                                Amazon)</kbd>, clique na aba
+                                <kbd lang="en">My AMIs</kbd><kbd lang="pt">Minhas AMIs</kbd>, selecione a opção
+                                <kbd lang="en">Shared with me</kbd><kbd lang="pt">Compartilhado comigo</kbd> e escolha
+                                a imagem <code>CinBackend</code>
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; EC2</h1>
+                        <h2>Prática</h2>
+                        <ol start="6">
+                            <li>
+                                Em <kbd lang="en">Instance type</kbd><kbd lang="pt">Tipo de instância</kbd>,
+                                certifique-se que escolheu a opção <code>t2.micro</code>, que é qualificada para o nível
+                                gratuito
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Key pair (login)</kbd><kbd lang="pt">Par de chaves (login)</kbd>,
+                                clique no <em>link</em> <kbd lang="en">Create new key pair</kbd><kbd lang="pt">Criar
+                                novo par de chaves</kbd>, forneça um nome e clique no botão no final do <em>modal</em>
+                                para fazer o <em>download</em> da chave
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Network settings</kbd><kbd lang="pt">Configurações de rede</kbd>,
+                                altere o campo ao lado da opção
+                                <kbd lang="en">Allow SSH traffic from</kbd><kbd lang="pt">Permitir tráfego SSH de</kbd>
+                                de <kbd lang="en">Anywhere</kbd><kbd lang="pt">Qualquer lugar</kbd> para
+                                <kbd lang="en">My IP</kbd><kbd lang="pt">Meu IP</kbd>, e marque as duas opções para
+                                permitir tráfego HTTP e HTTPS da Internet
+                            </li>
+                            <li>
+                                No lado direito da página, clique em
+                                <kbd lang="en">Launch instance</kbd><kbd lang="pt">Executar instância</kbd>
+                            </li>
+                            <li>
+                                No aviso de sucesso que aparecer, clique no ID da instância para acessar seus detalhes
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; EC2</h1>
+                        <h2>Prática</h2>
+                        <ol start="11">
+                            <li>
+                                Na aba inferior de detalhes da instância, localize o campo
+                                <kbd lang="en">Public IPv4 address</kbd><kbd lang="pt">Endereço IPv4 público</kbd> e
+                                copie-o <em>(pode demorar alguns segundos para estar disponível)</em>
+                            </li>
+                            <li>
+                                É possível acessar a máquina de algumas maneiras:
+                                <ul>
+                                    <li>
+                                        Através do cliente SSH de linha de comando, executando:
+                                        <pre><code class="shell" data-trim>
+                                            $ ssh -i "/caminho/para/o/arquivo.pem" ec2-user@&lt;ip-copiado&gt;
+                                        </code></pre>
+                                    </li>
+                                    <li>
+                                        Usando ferramentas de interface gráfica como o
+                                        <a href="https://www.putty.org/" target="_blank" rel="noopener">PuTTY</a>
+                                        <em>(será preciso converter a chave do formato <code>.pem</code> para
+                                            <code>.ppk</code> através da ferramenta <kbd>PuTTYgen</kbd>, que vem
+                                            instalada junto com o PuTTY)</em>
+                                    </li>
+                                    <li>
+                                        Utilizando a ferramenta
+                                        <a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html"
+                                           target="_blank" rel="noopener">Instance Connect</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </section>
+                </section> <!-- EC2 -->
+
+                <section> <!-- RDS -->
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Banco de Dados</h2>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Banco de Dados</h2>
+                        <p>
+                            Para persistir as informações em nosso <em>backend</em>, precisamos utilizar um banco de
+                            dados, e optaremos pelo <strong>RDS</strong> <em>(Relational Database Services)</em> para
+                            simplificar a configuração, operação e dimensionamento do banco
+                        </p>
+
+                        <a href="https://aws.amazon.com/rds/" class="reference" target="_blank" rel="noopener">
+                            aws.amazon.com/rds
+                        </a>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Banco de Dados</h2>
+                        <p>
+                            O <em>Amazon Relational Database Services</em> é uma coleção de serviços gerenciados que
+                            simplifica a configuração, operação e dimensionamento de bancos de dados na nuvem
+                        </p>
+
+                        <a href="https://aws.amazon.com/rds/" class="reference" target="_blank" rel="noopener">
+                            aws.amazon.com/rds
+                        </a>
+                    </section>
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; RDS</h1>
+                        <h2>Prática</h2>
+                        <ol>
+                            <li>Selecione o serviço <kbd>RDS</kbd> no painel da AWS</li>
+                            <li>
+                                Em seguida, clique no botão <kbd lang="en">Create Database</kbd><kbd lang="pt">Criar
+                                Banco de Dados</kbd> para iniciar o processo
+                            </li>
+                            <li>
+                                Escolha o
+                                <a href="https://pt.wikipedia.org/wiki/Sistema_de_gerenciamento_de_banco_de_dados"
+                                   target="_blank" rel="noopener">SGBD</a> como MariaDB
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Templates</kbd><kbd lang="pt">Modelos</kbd>, escolha
+                                <kbd lang="en">Free Tier</kbd><kbd lang="pt">Nível gratuito</kbd>
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Settings</kbd><kbd lang="pt">Configurações</kbd>
+                                <ul>
+                                    <li>
+                                        Dê um nome para identificar a instância de seu banco de dados
+                                    </li>
+                                    <li>
+                                        Em <kbd lang="en">Credentials Settings</kbd><kbd lang="pt">Configurações de
+                                        credenciais</kbd>, anote o
+                                        <kbd lang="en">Master username</kbd><kbd lang="pt">Nome do usuário
+                                        principal</kbd>, que é o nome de usuário do administrador do banco
+                                    </li>
+                                    <li>
+                                        Em <kbd lang="en">Credentials management</kbd><kbd lang="pt">Gerenciamento de
+                                        credenciais</kbd>, escolha
+                                        <kbd lang="en">Self managed</kbd><kbd lang="pt">Autogerenciada</kbd>
+                                        <em>(recomendado apenas para testes &mdash; use a opção do
+                                            <a href="https://aws.amazon.com/pt/secrets-manager/" target="_blank"
+                                               rel="noopener">AWS Secrets Manager</a>
+                                            em produção)</em>
+                                    </li>
+                                    <li>
+                                        Crie sua <kbd lang="en">Master password</kbd><kbd lang="pt">Senha
+                                        principal</kbd> ou clique em <kbd lang="en">Auto generate password</kbd><kbd
+                                            lang="pt">Gerar senha automaticamente</kbd>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; RDS</h1>
+                        <h2>Prática</h2>
+                        <ol start="6">
+                            <li>
+                                Em <kbd lang="en">Storage</kbd><kbd lang="pt">Armazenamento</kbd>, expanda a opção
+                                <kbd lang="en">Storage autoscaling</kbd><kbd lang="pt">Escalabilidade automática do
+                                armazenamento</kbd> e desmarque a opção
+                                <kbd lang="en">Enable storage autoscaling</kbd><kbd lang="pt">Habilitar escalabilidade
+                                automática do armazenamento</kbd>, pois não queremos ter mais disco anexado
+                                automaticamente de acordo com o uso
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Connectivity</kbd><kbd lang="pt">Conectividade</kbd>, escolha
+                                <kbd lang="en">Connect to an EC2 compute resource</kbd><kbd lang="pt">Conectar-se a um
+                                recurso de computação do EC2</kbd> e escolha a instância EC2 que acabamos de criar
+                            </li>
+                            <li>
+                                Em <kbd lang="en">VPC security group (firewall)</kbd><kbd lang="pt">Grupo de segurança
+                                de VPC (firewall)</kbd>, clique em
+                                <kbd lang="en">Create new</kbd><kbd lang="pt">Criar novo</kbd> e forneça um nome
+                                para o <kbd lang="en">Security group</kbd><kbd lang="pt">Grupo de segurança</kbd>
+                            </li>
+                            <li>
+                                Desça até o final da página e clique em <kbd lang="en">Create Database</kbd><kbd
+                                    lang="pt">Criar banco de dados</kbd>, processo que pode levar alguns minutos até a
+                                instância ser provisionada
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; RDS</h1>
+                        <h2>Prática</h2>
+                        <ol start="10">
+                            <li>
+                                Depois que o banco estiver pronto, copie o endereço de conexão <em>(e a senha, se pediu
+                                para gerar uma automaticamente)</em>
+                            </li>
+                            <li>
+                                Altere o usuário e o endereço de conexão do seu banco no código abaixo:
+                                <pre><code class="shell clipboard" data-trim contenteditable="true" spellcheck="false">
+                                    $ curl -s https://raw.githubusercontent.com/vcampitelli/curso-criando-infra-nuvem/main/demo/db.sql | \
+                                        mysql -u "nome-do-usuario-master" \
+                                        -h "endereco-de-conexao-do-banco" \
+                                        -p
+                                </code></pre>
+                            </li>
+                            <li>
+                                Volte para a máquina EC2 e cole o comando acima para criar as tabelas e o usuário da
+                                aplicação no seu banco de dados, informando também a senha do usuário <em>(ela não irá
+                                aparecer enquanto você digita ou cola)</em>
+                            </li>
+                        </ol>
+                    </section>
+                </section> <!-- RDS -->
+
+                <section> <!-- Elastic Load Balancing -->
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Balanceador de Carga</h2>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Balanceador de Carga</h2>
+                        <blockquote>
+                            Escalabilidade é uma característica desejável em todo o sistema, rede ou processo, que
+                            indica a capacidade de manipular uma porção crescente de trabalho de forma uniforme, ou
+                            estar preparado para crescer.
+                        </blockquote>
+                        <a href="https://pt.wikipedia.org/wiki/Escalabilidade" target="_blank" rel="noopener"
+                           class="reference">
+                            Escalabilidade | Wikipédia
+                        </a>
+                    </section>
+                    <section> <!-- Load Balancer -->
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Elastic Load Balancing</h1>
+                        <h2>Definição</h2>
+                        <p>
+                            O balanceador de carga é uma ferramenta para fazer a distribuição do tráfego de rede entre
+                            destinos diferentes através do mesmo endereço IP, permitindo assim a escalabilidade da
+                            aplicação
+                        </p>
+                        <p>
+                            Cada vez que uma máquina é criada ou excluída pelo <em>Auto Scaling</em> (que veremos em
+                            breve), o <b>Balanceador de Carga</b> é avisado para que ele atualize seu cadastro interno
+                            de serviços disponíveis para poder começar a rotear as requisições para o novo serviço
+                        </p>
+                    </section> <!-- Load Balancer -->
+                    <section>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Elastic Load Balancing</h1>
+                        <h2>Definição</h2>
+                        <h3><em>Health check</em></h3>
+                        <p>
+                            Periodicamente, o <em>Load Balancer</em> faz checagens nos servidores cadastrados para
+                            verificar se eles estão respondendo, removendo-os se não estiverem
+                        </p>
+                    </section>
+                    <section> <!-- Load Balancer -->
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Escalabilidade</h1>
+                        <div class="r-stack justify-start">
+                            <h2 class="fragment fade-out" data-fragment-index="0">
+                                Arquitetura sem Balanceador de Carga
+                            </h2>
+                            <h2 class="fragment" data-fragment-index="0">
+                                Arquitetura com Balanceador de Carga
+                            </h2>
+                        </div>
+                        <img src="img/alb-diagrama.svg" class="inject-svg" alt="Arquitetura com Load Balancer">
+                    </section> <!-- Load Balancer -->
+                    <section> <!-- AWS Elastic Load Balancing: Conceitos -->
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Elastic Load Balancing</h1>
+                        <h2>Conceitos</h2>
+
+                        <h3><em>Listeners</em></h3>
+                        <p>
+                            Configuração que especifica o protocolo, porta e ação a ser tomada <em>(como autenticação,
+                            uma resposta fixa, redirecionamento de URL ou encaminhamento para o destino)</em>
+                        </p>
+                        <a href="https://docs.aws.amazon.com/pt_br/elasticloadbalancing/latest/application/load-balancer-listeners.html"
+                           target="_blank" rel="noopener" class="reference mb-2">
+                            Listeners for your Application Load Balancers
+                        </a>
+
+                        <h3><em>Target Groups</em></h3>
+                        <p>
+                            Configuração que define como a requisição deve chegar em um servidor de destino
+                        </p>
+                        <a href="https://docs.aws.amazon.com/pt_br/elasticloadbalancing/latest/application/load-balancer-target-groups.html"
+                           target="_blank" rel="noopener" class="reference">
+                            Target groups for your Application Load Balancers
+                        </a>
+                    </section> <!-- AWS Elastic Load Balancing: Conceitos -->
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Elastic Load Balancing</h1>
+                        <h2>Prática</h2>
+                        <ol>
+                            <li>Selecione o serviço <kbd>EC2</kbd> no painel da AWS</li>
+                            <li>
+                                Crie um <kbd lang="en">Security group</kbd><kbd lang="pt">Grupo de segurança</kbd>
+                                que permita acesso de entrada para os protocolos HTTP (porta 80) e HTTPS (porta 443)
+                                de qualquer lugar
+                            </li>
+                            <li>
+                                No painel de navegação lateral, procure pela seção
+                                <kbd lang="en">Load Balancing</kbd><kbd lang="pt">Balanceamento de carga</kbd> e clique
+                                em <kbd>Load Balancers</kbd>
+                            </li>
+                            <li>
+                                Clique no botão
+                                <kbd lang="en">Create load balancer</kbd><kbd lang="pt">Criar load balancer</kbd> e
+                                escolha a opção <kbd>Application Load Balancer</kbd>
+                            </li>
+                            <li>
+                                Forneça um nome único para o balanceador, escolha ao menos duas zonas de
+                                disponibilidade e selecione o grupo que criamos no primeiro passo em
+                                <kbd lang="en">Security groups</kbd><kbd lang="pt">Grupos de segurança</kbd>
+                            </li>
+                            <li>
+                                Em
+                                <kbd lang="en">Listeners and routing</kbd><kbd lang="pt">Listeners e roteamento</kbd>,
+                                clique no <em>link</em>
+                                <kbd lang="en">Create target group</kbd><kbd lang="pt">Criar grupo de destino</kbd>
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Elastic Load Balancing</h1>
+                        <h2>Prática</h2>
+                        <ol start="7">
+                            <li>
+                                Na nova aba que abrir, forneça um nome em
+                                <kbd lang="en">Target group name</kbd><kbd lang="pt">Nome do grupo de destino</kbd>
+                            </li>
+                            <li>
+                                Em <kbd lang="en">Health checks</kbd><kbd lang="pt">Verificações de integridade</kbd>,
+                                expanda a seção <kbd lang="en">Advanced health check settings</kbd><kbd
+                                    lang="pt">Configurações avançadas (...)</kbd> e altere o
+                                valor de <kbd lang="en">Healthy threshold</kbd><kbd lang="pt">Limite íntegro</kbd> para
+                                <code>2</code>
+                            </li>
+                            <li>
+                                Clique em <kbd lang="en">Next</kbd><kbd lang="pt">Próximo</kbd> e na página seguinte em
+                                <kbd lang="en">Create target group</kbd><kbd lang="pt">Criar grupo de destino</kbd>
+                            </li>
+                            <li>
+                                Volte para a aba de cadastro do balanceador, clique no botão para atualizar a lista de
+                                <kbd lang="en">Target groups</kbd><kbd lang="pt">Grupos de destino</kbd> e escolha o
+                                grupo que criou
+                            </li>
+                            <li>
+                                Clique no botão <kbd lang="en">Add listener</kbd><kbd lang="pt">Adicionar listener</kbd>
+                                para adicionar um novo <em>listener</em>, selecione o protocolo <code>HTTPS</code> e
+                                escolha o mesmo <kbd lang="en">Target groups</kbd><kbd lang="pt">Grupos de destino</kbd>
+                            </li>
+                            <li>
+                                Na nova seção <kbd lang="en">Secure listener settings</kbd><kbd
+                                    lang="pt">Configurações seguras do listener</kbd> que aparecer, selecione
+                                <kbd lang="en">Import certificate</kbd><kbd lang="pt">Importar certificado</kbd>
+                                <em>(o recomendado é criarmos certificados no ACM, mas para adiantar, eu já fiz isso
+                                    aqui para vocês)</em>
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Elastic Load Balancing</h1>
+                        <h2>Prática</h2>
+                        <ol start="13">
+                            <li>
+                                Cole nos campos <kbd lang="en">Certificate private key</kbd><kbd lang="pt">Chave privada
+                                do certificado</kbd> e <kbd lang="en">Certificate body</kbd><kbd lang="pt">Corpo do
+                                certificado</kbd> os valores que eu enviar para vocês
+                            </li>
+                            <li>
+                                Finalmente, no fim da página, clique em
+                                <kbd lang="en">Create load balancer</kbd><kbd lang="pt">Criar load balancer</kbd> e, na
+                                tela de detalhes do balanceador, copie o
+                                <kbd lang="en">DNS Name</kbd><kbd lang="pt">Nome DNS</kbd> e cole na nossa planilha
+                            </li>
+                            <li>
+                                Enquanto a propagação do DNS para os endereços <code>api.uXX.cin.vcampitelli.dev</code>
+                                não acontece, você pode acessar diretamente o endereço do
+                                <kbd lang="en">DNS Name</kbd><kbd lang="pt">Nome DNS</kbd> no navegador
+                            </li>
+                        </ol>
+                    </section>
+                </section> <!-- Elastic Load Balancing  -->
+
+                <section> <!-- Auto Scaling -->
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2>Auto Scaling</h2>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend</h1>
+                        <h2><em>Auto Scaling</em></h2>
+                        <p>
+                            Serviço que monitora sua aplicação e ajusta automaticamente a capacidade <em>(ligando ou
+                            desligando servidores)</em> de acordo com certas métricas <em>(por exemplo, o uso médio de
+                            CPU)</em> para manter um desempenho estável e previsível com o menor custo possível
+                        </p>
+                        <a href="https://aws.amazon.com/autoscaling/" class="reference" target="_blank" rel="noopener">
+                            aws.amazon.com/autoscaling
+                        </a>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Auto Scaling</h1>
+                        <h2>Prática</h2>
+                        <ol>
+                            <li>Selecione o serviço <kbd>EC2</kbd> no painel da AWS</li>
+                            <li>
+                                No painel de navegação lateral, procure pela seção <kbd>Auto Scaling</kbd> e clique em
+                                <kbd lang="en">Auto Scaling Groups</kbd><kbd lang="pt">Grupos Auto Scaling</kbd>
+                            </li>
+                            <li>
+                                Clique em <kbd lang="en">Create Auto Scaling group</kbd><kbd lang="pt">Criar grupo do
+                                Auto Scaling</kbd>
+                            </li>
+                            <li>
+                                Nomeie o grupo e clique no <em>link</em> <kbd lang="en">Create a launch
+                                template</kbd><kbd lang="pt">Criar um modelo de execução</kbd>, que é um conjunto de
+                                instruções de como queremos nossas instâncias
+                            </li>
+                            <li>
+                                Na aba que abrir para criação, dê um nome e faça configurações parecidas com as que
+                                fizemos ao executar uma instância <kbd>EC2</kbd>, escolhendo a AMI compartilhada
+                                <code>CinBackend</code>, o tipo de instância <code>t2.micro</code>, além do par de
+                                chaves e do grupo de segurança que você criou anteriormente
+                            </li>
+                            <li>
+                                Na direita da página, clique em
+                                <kbd lang="en">Create launch template</kbd><kbd lang="pt">Criar modelo de execução</kbd>
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Auto Scaling</h1>
+                        <h2>Prática</h2>
+                        <ol start="7">
+                            <li>
+                                Após a criação do modelo, volte para a aba de configuração do <em>Auto Scaling</em>,
+                                selecione o modelo recém-criado e clique em
+                                <kbd lang="en">Next</kbd><kbd lang="pt">Próximo</kbd>
+                            </li>
+                            <li>
+                                Selecione ao menos uma opção em <kbd lang="en">Availability Zones and subnets</kbd><kbd
+                                    lang="pt">Zonas de disponibilidade e sub-redes</kbd> e clique em
+                                <kbd lang="en">Next</kbd><kbd lang="pt">Próximo</kbd>
+                            </li>
+                            <li>
+                                Na próxima tela, selecione
+                                <kbd lang="en">Attach to an existing load balancer</kbd><kbd lang="pt">Anexar a um
+                                balanceador de carga existente</kbd>, selecione o
+                                <kbd lang="en">Target group</kbd><kbd lang="pt">Grupo de destino</kbd> criado e clique
+                                em <kbd lang="en">Next</kbd><kbd lang="pt">Próximo</kbd>
+                            </li>
+                            <li>
+                                Agora, iremos configurar os números para a escalabilidade de nossa aplicação,
+                                aumentando o campo
+                                <kbd lang="en">Max desired capacity</kbd><kbd lang="pt">Capacidade máxima desejada</kbd>
+                                para <code>2</code> e definindo o
+                                <kbd lang="en">Automatic scaling</kbd><kbd lang="pt">Ajuste de escala automática</kbd>
+                                como <kbd lang="en">Target tracking scaling policy</kbd><kbd lang="pt">Política de
+                                dimensionamento com monitoramento do objetivo</kbd>
+                            </li>
+                            <li>
+                                Clique em <kbd lang="en">Next</kbd><kbd lang="pt">Próximo</kbd> no final da página e
+                                também nas duas seguintes até chegar na página de revisão das ações &mdash; confirme a
+                                criação clicando no botão <kbd lang="en">Create Auto Scaling group</kbd><kbd
+                                    lang="pt">Criar grupo do Auto Scaling</kbd> no fim da página
+                            </li>
+                        </ol>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Serviços para nosso backend &raquo; Auto Scaling</h1>
+                        <h2>Prática</h2>
+                        <ol start="12">
+                            <li>
+                                Volte para a tela de instâncias EC2, clique com o botão direito na primeira máquina que
+                                criamos de teste e selecione
+                                <kbd lang="en">Stop instance</kbd><kbd lang="pt">Interromper instância</kbd> para
+                                desligá-la
+                            </li>
+                            <li>
+                                Acesse o endereço
+                                <code>https://api.uXX.cin.vcampitelli.dev/stress</code> várias vezes e acompanhe
+                                a listagem de instâncias enquanto o <em>Auto Scaling</em> cria novas máquinas
+                            </li>
+                            <li>
+                                Assim que uma nova máquina for criada, espere alguns segundos e continue fazendo
+                                requisições para o endereço, até notar que o campo <code>hostname</code> eventualmente
+                                irá mudar, indicando que cada requisição está sendo direcionado para uma máquina
+                                diferente
+                            </li>
+                        </ol>
+                    </section>
+                </section> <!-- Auto Scaling -->
+
+                <section> <!-- Arquitetura do backend -->
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Arquitetura</h1>
+                        <h2>Backend</h2>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Arquitetura</h1>
+                        <h2>Backend</h2>
+                        <img src="img/backend.svg" class="inject-svg" alt="Backend">
+                    </section>
+                </section> <!-- Arquitetura do backend -->
+
                 <section> <!-- Deploy -->
                     <section data-auto-animate data-auto-animate-restart>
                         <h1>Deploy</h1>
@@ -1302,12 +1872,9 @@
                             </div>
                         </div>
                     </section>
-                </section> <!-- Deploy -->
-
-                <section> <!-- GitHub Actions -->
                     <section>
                         <h1 class="subtitle">Deploy</h1>
-                        <h1 class="subtitle">GitHub Actions</h1>
+                        <h2>GitHub Actions</h2>
                     </section>
                     <section>
                         <h1 class="subtitle">Deploy &raquo; GitHub Actions</h1>
@@ -1520,8 +2087,8 @@
                         <h1 class="subtitle">Deploy &raquo; GitHub Actions</h1>
                         <h3>Prática</h3>
                         <p>
-                            Vamos criar um <em>workflow</em> para fazer o <em>deploy</em> do nosso frontend sempre
-                            que houver um <kbd>push</kbd> na <code>main</code>
+                            Vamos criar dois <em>workflows</em> para fazer o <em>deploy</em> das nossas duas aplicações
+                            <em>(frontend e backend)</em> sempre que houver um <kbd>push</kbd> na <code>main</code>
                         </p>
                     </section>
                     <section data-auto-animate>
@@ -1619,16 +2186,92 @@
                     </section>
                 </section> <!-- GitHub Actions -->
 
-                <section>
-                    <h1 class="title">Amanhã...</h1>
-                    <p class="fragment">
-                        Veremos como utilizar EC2, RDS, Balanceador de Carga, Auto Scaling e o CodeDeploy para nosso
-                        <em>backend</em>
-                    </p>
-                    <p class="fragment">
-                        Também veremos como criar um ambiente de <em>sandbox</em> para nossas duas aplicações
-                    </p>
-                </section>
+                <section> <!-- Migração -->
+                    <section data-auto-animate data-auto-animate-restart>
+                        <h1 class="subtitle">Migração</h1>
+                        <h2>Dicas ao migrar para a <em>cloud</em></h2>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Migração</h1>
+                        <h2>Dicas ao migrar para a <em>cloud</em></h2>
+                        <ul>
+                            <li>
+                                Entenda os conceitos do
+                                <a href="https://12factor.net/pt_br/" target="_blank" rel="noopener">The Twelve-Factor
+                                    App</a>, manifesto criado para ajudar desenvolvedores a criar aplicações para a
+                                nuvem
+                                <ul>
+                                    <li>
+                                        Exemplo: utilize variáveis de ambiente para configurar parâmetros e credenciais
+                                        que dependam do ambiente
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Migração</h1>
+                        <h2>Dicas ao migrar para a <em>cloud</em></h2>
+                        <ul>
+                            <li>
+                                Não dependa diretamente do sistema de arquivos <em>(por exemplo, com chamadas diretas a
+                                funções como <code>fopen()</code>)</em>, já que os servidores estão sendo constantemente
+                                criados ou desativados pelo <em>Auto Scaling</em>
+                                <ul>
+                                    <li class="fragment" data-fragment-index="0">
+                                        Até é possível compartilhar uma partição de disco entre todas suas instâncias do
+                                        EC2 através do
+                                        <a href="https://aws.amazon.com/efs/" target="_blank" rel="noopener">EFS</a>,
+                                        por exemplo
+                                    </li>
+                                    <li class="fragment" data-fragment-index="1">
+                                        Abstraia as interações com os arquivos para uma classe, criando duas: uma para
+                                        acessos locais <em>(com as funções diretas do PHP)</em> e outro quando estiver
+                                        rodando na <em>cloud</em> <em>(com chamadas ao S3, por exemplo)</em>
+                                    </li>
+                                    <li class="fragment" data-fragment-index="2">
+                                        Como as sessões do PHP são armazenadas por padrão em arquivos, é preciso
+                                        usar outra abordagem, por exemplo sistemas em memória como
+                                        <a href="https://aws.amazon.com/elasticache/memcached/" target="_blank"
+                                           rel="noopener">ElastiCache for Memcached</a> ou
+                                        <a href="https://aws.amazon.com/memorydb/" target="_blank" rel="noopener">
+                                            MemoryDB for Redis
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section data-auto-animate>
+                        <h1 class="subtitle">Migração</h1>
+                        <h2>Dicas ao migrar para a <em>cloud</em></h2>
+                        <p>Algumas referências:</p>
+                        <ul>
+                            <li>
+                                <a href="https://12factor.net/pt_br/" target="_blank" rel="noopener">
+                                    The Twelve-Factor App
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aws.amazon.com/blogs/enterprise-strategy/6-strategies-for-migrating-applications-to-the-cloud/"
+                                   target="_blank" rel="noopener">
+                                    AWS: Migração para a nuvem
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aws.amazon.com/pt/cloud-migration/" target="_blank" rel="noopener">
+                                    AWS: 6 Strategies for Migrating Applications to the Cloud
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://learn.microsoft.com/pt-br/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-overview"
+                                   target="_blank" rel="noopener">
+                                    Azure: Visão geral dos exemplos de migração de aplicativos para o Azure
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </section> <!-- Migração -->
 
                 <section> <!-- Obrigado -->
                     <h1 class="text-center title" style="margin-left: -1.5em">Obrigado!</h1>

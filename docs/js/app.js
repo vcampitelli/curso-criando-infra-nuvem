@@ -93,14 +93,7 @@ document.querySelectorAll('code.clipboard').forEach(($code) => {
     $button.title = 'Clique aqui para copiar esse código para sua área de transferências';
     $button.addEventListener('click', function (e) {
         e.preventDefault();
-        let textToBeCopied = '';
-        const $lines = $code.querySelectorAll('.hljs-ln-code');
-        if ($lines.length > 0) {
-            $lines.forEach(n => textToBeCopied += n.innerText + "\n");
-        } else {
-            textToBeCopied = $code.innerText;
-        }
-        navigator.clipboard.writeText(textToBeCopied).then(function() {
+        navigator.clipboard.writeText(getTextToBeCopied($code)).then(function() {
             $button.classList.add('btn-code-clipboard-copied');
             setTimeout(function() {
                 $button.classList.remove('btn-code-clipboard-copied');
@@ -111,3 +104,28 @@ document.querySelectorAll('code.clipboard').forEach(($code) => {
     });
     $code.appendChild($button);
 });
+
+/**
+ *
+ * @param {HTMLElement} $code
+ * @returns {string}
+ */
+const getTextToBeCopied = ($code) => {
+    // Removendo $ dos scripts shell
+    if ($code.classList.contains('language-shell')) {
+        let text = '';
+        const $span = $code.querySelectorAll('.language-bash');
+        $span.forEach(n => text += n.innerText + "\n");
+        return text;
+    }
+
+    // Vendo código em tableas com data-line-numbers
+    if ($code.dataset.lineNumbers) {
+        const $lines = $code.querySelectorAll('.hljs-ln-code');
+        let text = '';
+        $lines.forEach(n => text += n.innerText + "\n");
+        return text;
+    }
+
+    return $code.innerText;
+}
