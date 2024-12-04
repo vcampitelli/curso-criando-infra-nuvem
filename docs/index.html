@@ -1604,7 +1604,7 @@
                             <li>
                                 Cole nos campos <kbd lang="en">Certificate private key</kbd><kbd lang="pt">Chave privada
                                 do certificado</kbd> e <kbd lang="en">Certificate body</kbd><kbd lang="pt">Corpo do
-                                certificado</kbd> os valores que eu enviar para vocês
+                                certificado</kbd> os valores que irei enviar para vocês
                             </li>
                             <li>
                                 Finalmente, no fim da página, clique em
@@ -1872,6 +1872,78 @@
                             </div>
                         </div>
                     </section>
+                    <section>
+                        <h1 class="subtitle">Deploy</h1>
+                        <h2>Como instalar novos códigos?</h2>
+                        <p>
+                            Se temos nossa aplicação rodando em algum servidor, como podemos fazer para enviar novos
+                            códigos criados pela equipe?
+                        </p>
+                        <p class="fragment">
+                            Algumas abordagens são:
+                        </p>
+                        <ul>
+                            <li class="fragment">
+                                Instalar um serviço na máquina que receba as atualizações através de HTTPS ou outro
+                                protocolo
+                            </li>
+                            <li class="fragment">
+                                Acessar a máquina via SSH e enviar o código via SCP ou SFTP
+                            </li>
+                            <li class="fragment">
+                                Se usarmos <em>containers</em>, podemos criar imagens com o código atualizado e subir
+                                novos <em>containers</em> com a imagem atualizada
+                            </li>
+                            <li class="fragment">
+                                Se usarmos <kbd>EC2</kbd>, podemos gerar novas
+                                <a href="https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/AMIs.html">AMIs</a>
+                                com nosso código e
+                                informá-las ao <kbd>Auto Scaling</kbd> com o
+                                <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-refresh-overview.html"><em>instance refresh</em></a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section data-auto-animate>
+                        <header>
+                            <h1>Deploy</h1>
+                            <h2>Como instalar novos códigos?</h2>
+                        </header>
+                        <h3>CodeDeploy</h3>
+                        <blockquote>
+                            CodeDeploy é um serviço de implantação que automatiza implantações de aplicativos em
+                            instâncias do Amazon EC2, instâncias locais, funções Lambda sem servidor ou serviços do
+                            Amazon ECS.
+                        </blockquote>
+                        <a href="https://docs.aws.amazon.com/pt_br/codedeploy/latest/userguide/welcome.html"
+                           target="_blank" rel="noopener" class="reference">
+                            AWS CodeDeploy
+                        </a>
+                    </section>
+                    <section data-auto-animate>
+                        <header>
+                            <h1>Deploy</h1>
+                            <h2>Como instalar novos códigos?</h2>
+                        </header>
+                        <h3>CodeDeploy</h3>
+                        <p>
+                            Ele utiliza a estratégia de instalar um serviço na máquina que recebe as atualizações de
+                            código
+                        </p>
+                    </section>
+                    <section data-auto-animate>
+                        <header>
+                            <h1>Deploy</h1>
+                            <h2>Como instalar novos códigos?</h2>
+                        </header>
+                        <h3>CodeDeploy</h3>
+                        <h4>Prática</h4>
+                        <p>
+                            Vamos ver como configurar o CodeDeploy pelo painel administrativo da AWS
+                        </p>
+                    </section>
+                </section> <!-- Deploy -->
+
+                <section> <!-- GitHub Actions -->
                     <section>
                         <h1 class="subtitle">Deploy</h1>
                         <h2>GitHub Actions</h2>
