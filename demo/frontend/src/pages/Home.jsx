@@ -8,7 +8,7 @@ function Home () {
             <Container fluid className="py-5">
                 <h1 className="display-5 fw-bold">Painel CIN</h1>
                 <p className="col-md-8 fs-4">
-                    Essa é uma simples aplicação de demonstração do meu curso{' '}
+                    Essa é a versão 2 da minha aplicação de demonstração do meu curso{' '}
                     <span className="text-body-secondary fw-bold">Criando uma Infraestrutura na Nuvem</span>
                 </p>
                 <LinkContainer to="/users">
