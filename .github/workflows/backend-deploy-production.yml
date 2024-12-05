@@ -27,14 +27,16 @@ jobs:
         with:
           role-to-assume: ${{ secrets.BACKEND_AWS_ROLE }}
           role-session-name: GitHub-Action-Role
-          aws-region: ${{ env.BACKEND_AWS_REGION }}
+          aws-access-key-id: ${{ secrets.BACKEND_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.BACKEND_AWS_SECRET_KEY }}
+          aws-region: ${{ vars.BACKEND_AWS_REGION }}
 
       - name: Criando deployment no AWS CodeDeploy
         run: |
           echo "Fazendo deploy de ${{ github.sha }} para produção..."
           aws deploy create-deployment \
-            --application-name ${{ env.BACKEND_CODEDEPLOY_APPLICATION }} \
+            --application-name ${{ vars.BACKEND_CODEDEPLOY_APPLICATION }} \
             --description "Commit ${{ github.sha }}" \
-            --deployment-group-name ${{ env.BACKEND_CODEDEPLOY_DEPLOYMENT_GROUP }} \
+            --deployment-group-name ${{ vars.BACKEND_CODEDEPLOY_DEPLOYMENT_GROUP }} \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }} \
             --ignore-application-stop-failures

@@ -28,7 +28,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.FRONTEND_AWS_ROLE }}
-          aws-region: ${{ env.FRONTEND_AWS_REGION }}
+          aws-region: ${{ vars.FRONTEND_AWS_REGION }}
           aws-access-key-id: ${{ secrets.FRONTEND_AWS_ACCESS_KEY_ID }} # opcional, usado apenas em desenvolvimento
           aws-secret-access-key: ${{ secrets.FRONTEND_AWS_SECRET_KEY }} # opcional, usado apenas em desenvolvimento
 
