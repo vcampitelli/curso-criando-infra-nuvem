@@ -8,9 +8,14 @@ permissions:
     owner: nginx
     group: nginx
 hooks:
+  ApplicationStop:
+    - location: demo/backend/scripts/stop-server.sh
+      timeout: 30
   BeforeInstall:
     - location: demo/backend/scripts/env-vars-inject.sh
+      timeout: 60
+    - location: demo/backend/scripts/install-dependencies.sh
       timeout: 300
   AfterInstall:
-    - location: demo/backend/scripts/install-prod.sh
-      timeout: 300
+    - location: demo/backend/scripts/start-server.sh
+      timeout: 30
