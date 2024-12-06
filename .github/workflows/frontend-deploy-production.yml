@@ -49,7 +49,7 @@ jobs:
         run: npm run build
 
       - name: Copiando os arquivos para o S3
-        run: aws s3 sync ./dist s3://${{ secrets.FRONTEND_AWS_S3_BUCKET_NAME }}
+        run: aws s3 sync ./dist s3://${{ secrets.FRONTEND_AWS_S3_BUCKET_NAME }} --delete
 
       - name: Invalidando distribuição no CloudFront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.FRONTEND_AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
