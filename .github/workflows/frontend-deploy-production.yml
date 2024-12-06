@@ -29,8 +29,6 @@ jobs:
         with:
           role-to-assume: ${{ secrets.FRONTEND_AWS_ROLE }}
           aws-region: ${{ vars.FRONTEND_AWS_REGION }}
-          aws-access-key-id: ${{ secrets.FRONTEND_AWS_ACCESS_KEY_ID }} # opcional, usado apenas em desenvolvimento
-          aws-secret-access-key: ${{ secrets.FRONTEND_AWS_SECRET_KEY }} # opcional, usado apenas em desenvolvimento
 
       - name: Configurando Node
         uses: actions/setup-node@v4
@@ -46,6 +44,8 @@ jobs:
         run: npm test
 
       - name: Fazendo build da aplicação
+        env:
+          VITE_APP_API_URL: ${{ vars.VITE_APP_API_URL }}
         run: npm run build
 
       - name: Copiando os arquivos para o S3
