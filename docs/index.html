@@ -1547,8 +1547,8 @@
                                 escolha a opção <kbd>Application Load Balancer</kbd>
                             </li>
                             <li>
-                                Forneça um nome único para o balanceador, escolha ao menos duas zonas de
-                                disponibilidade e selecione o grupo que criamos no primeiro passo em
+                                Forneça um nome único para o balanceador, escolha todas as zonas de disponibilidade e
+                                selecione o grupo que criamos no primeiro passo em
                                 <kbd lang="en">Security groups</kbd><kbd lang="pt">Grupos de segurança</kbd>
                             </li>
                             <li>
@@ -1874,18 +1874,22 @@
                     </section>
                     <section>
                         <h1 class="subtitle">Deploy</h1>
-                        <h2>Como instalar novos códigos?</h2>
+                        <h2>Como fazer deploy no frontend?</h2>
                         <p>
-                            Se temos nossa aplicação rodando em algum servidor, como podemos fazer para enviar novos
-                            códigos criados pela equipe?
+                            Basta subirmos os arquivos no <kbd>S3</kbd> e criarmos uma invalidação no
+                            <kbd>CloudFront</kbd>
                         </p>
-                        <p class="fragment">
+                    </section>
+                    <section>
+                        <h1 class="subtitle">Deploy</h1>
+                        <h2>Como fazer deploy no backend?</h2>
+                        <p>
                             Algumas abordagens são:
                         </p>
                         <ul>
                             <li class="fragment">
-                                Instalar um serviço na máquina que receba as atualizações através de HTTPS ou outro
-                                protocolo
+                                Instalar um serviço na máquina que receba as atualizações <em>(através de HTTPS ou outro
+                                protocolo)</em>
                             </li>
                             <li class="fragment">
                                 Acessar a máquina via SSH e enviar o código via SCP ou SFTP
@@ -1906,7 +1910,7 @@
                     <section data-auto-animate>
                         <header>
                             <h1>Deploy</h1>
-                            <h2>Como instalar novos códigos?</h2>
+                            <h2>Como fazer deploy no backend?</h2>
                         </header>
                         <h3>CodeDeploy</h3>
                         <blockquote>
@@ -1922,18 +1926,28 @@
                     <section data-auto-animate>
                         <header>
                             <h1>Deploy</h1>
-                            <h2>Como instalar novos códigos?</h2>
+                            <h2>Como fazer deploy no backend?</h2>
                         </header>
                         <h3>CodeDeploy</h3>
                         <p>
-                            Ele utiliza a estratégia de instalar um serviço na máquina que recebe as atualizações de
-                            código
+                            Utiliza a estratégia de instalar um serviço na máquina que recebe as atualizações de
+                            código, e podemos utilizá-lo diretamente com máquinas <kbd>EC2</kbd>, em grupos de
+                            <kbd>Auto Scaling</kbd> ou até mesmo em máquinas fora da AWS
                         </p>
+                        <p>
+                            Também permite você escolher entre um <em>deploy</em> <code>In-place</code>, onde instâncias
+                            são rapidamente desligadas para serem atualizadas, ou
+                            <a href="https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment"
+                               target="_blank" rel="noopener">Blue/green deployment</a>, que cria novas instâncias para
+                            instalar a versão, fazendo uma instalação sem tempo <em>offline</em> (<em>downtime</em>)
+                        </p>
+                        <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html" target="_blank"
+                           rel="noopener" class="reference">What is CodeDeploy?</a>
                     </section>
                     <section data-auto-animate>
                         <header>
                             <h1>Deploy</h1>
-                            <h2>Como instalar novos códigos?</h2>
+                            <h2>Como fazer deploy no backend?</h2>
                         </header>
                         <h3>CodeDeploy</h3>
                         <h4>Prática</h4>
@@ -2070,8 +2084,8 @@
                                 <pre class="my-0"><code class="yaml" data-trim data-fragment-index="0"
                                                         data-line-numbers="|6-7|9-10|12-13|15-18|20-21|23-24|26-27|29-30|32-33|35-36">
                                     jobs:
-                                      job1:
-                                        name: Nome do primeiro job
+                                      deploy:
+                                        name: Deploy em produção
                                         runs-on: ubuntu-latest
                                         steps:
                                           - name: Checkout do código
@@ -2166,7 +2180,7 @@
                     <section data-auto-animate>
                         <h1 class="subtitle">Deploy &raquo; GitHub Actions</h1>
                         <h3>Usando OIDC</h3>
-                        <p class="fragment">
+                        <p>
                             Vários serviços (como os provedores de <em>cloud</em>) possuem integrações via
                             <a href="https://openid.net/developers/how-connect-works/" target="_blank"
                                rel="noopener">OpenID Connect</a> <em>(OIDC)</em>, protocolo de autenticação baseado no
@@ -2175,7 +2189,7 @@
                             praticidade
                         </p>
                         <a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect"
-                           target="_blank" rel="noopener" class="reference fragment">
+                           target="_blank" rel="noopener" class="reference">
                             About security hardening with OpenID Connect - GitHub Docs
                         </a>
                     </section>
@@ -2183,15 +2197,17 @@
                         <h1 class="subtitle">Deploy &raquo; GitHub Actions</h1>
                         <h3>Usando OIDC</h3>
                         <p>
-                            Para isso, configure na AWS uma <em>relação de confiança</em>, dizendo que determinados
-                            <em>tokens</em> JWt emitidos pelo GitHub Actions podem ter acesso à sua conta, e remova o
-                            uso das <em>access keys</em> de seu <em>workflow</em>
+                            Configure no seu provedor de <em>cloud</em> uma <b>relação de confiança</b> através dos
+                            <em>Identity Providers</em>, dizendo que <em>tokens</em> emitidos pelo GitHub Actions podem
+                            ter acesso à sua conta, determine as permissões que ele pode assumir e configure seu
+                            <em>workflow</em> <em>(que veremos em breve)</em>
                         </p>
                     </section>
                     <section>
                         <h1 class="subtitle">Deploy &raquo; GitHub Actions</h1>
-                        <h3>Como funciona o OIDC?</h3>
-                        <img src="img/oidc.svg" class="inject-svg">
+                        <h3>Usando OIDC</h3>
+                        <p>Como funciona?</p>
+                        <img src="img/oidc.svg" class="inject-svg" alt="OIDC">
                     </section>
                     <section data-auto-animate>
                         <h1 class="subtitle">Deploy &raquo; GitHub Actions</h1>
@@ -2208,12 +2224,12 @@
                                   - name: "Configurando AWS"
                                     uses: aws-actions/configure-aws-credentials@v4
                                     with:
-                                      aws-region: ${{ env.AWS_REGION }}
+                                      aws-region: ${{ vars.AWS_REGION }}
                                       access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                                       secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
                                   - name: "Subindo no S3"
-                                    run: aws s3 sync ./dist/ s3://${{ env.AWS_BUCKET_NAME }}/ --delete
+                                    run: aws s3 sync ./dist/ s3://${{ vars.AWS_BUCKET_NAME }}/ --delete
                         </code></pre>
                         <a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services"
                            target="_blank" rel="noopener" class="reference" data-id="reference">
@@ -2235,11 +2251,11 @@
                                   - name: "Configurando AWS"
                                     uses: aws-actions/configure-aws-credentials@v4
                                     with:
-                                      aws-region: ${{ env.AWS_REGION }}
+                                      aws-region: ${{ vars.AWS_REGION }}
                                       role-to-assume: ${{ secrets.AWS_ROLE }}
 
                                   - name: "Subindo no S3"
-                                    run: aws s3 sync ./dist/ s3://${{ env.AWS_BUCKET_NAME }}/ --delete
+                                    run: aws s3 sync ./dist/ s3://${{ vars.AWS_BUCKET_NAME }}/ --delete
                         </code></pre>
                         <a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services"
                            target="_blank" rel="noopener" class="reference" data-id="reference">
@@ -2255,6 +2271,11 @@
                             <em>tokens</em> JWT emitidos pelo GitHub Actions para nosso repositório possam assumir uma
                             determinada <kbd>Role</kbd>
                         </p>
+                        <a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services"
+                           target="_blank" rel="noopener" class="reference" data-id="reference">
+                            Configuring OpenID Connect in Amazon Web Services - GitHub Docs
+                        </a>
+
                     </section>
                 </section> <!-- GitHub Actions -->
 

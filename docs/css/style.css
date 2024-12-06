@@ -8,8 +8,8 @@
   --r-heading-font: var(--r-main-font);
   --r-heading-letter-spacing: -0.05em;
   --r-heading-text-transform: normal;
-  --r-link-color: #2364aa;
-  --r-link-color-hover: #2a79ce;
+  --r-link-color: #2a79ce;
+  --r-link-color-hover: #2364aa;
   --r-link-color-dark: #1e5691;
   --r-main-color: #e8e8e8;
   --r-main-font-size: 30px;
@@ -167,6 +167,8 @@ code:not(.hljs) {
 }
 code.hljs {
   border-radius: var(--border-radius);
+  scrollbar-width: thin;
+  scrollbar-color: #585858 #181818;
 }
 td.hljs-ln-line.hljs-ln-numbers {
   opacity: 0.25;

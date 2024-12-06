@@ -1,133 +1,142 @@
-<svg version="1.1" baseProfile="full" width="1376.0" height="172.5" viewBox="0 0 1376 172.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<svg version="1.1" baseProfile="full" width="1044.0" height="276.5" viewBox="0 0 1044 276.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
 	<desc >#direction: right
 	#gravity: 3
 	#stroke: #777
 	#font: Fira Sans
+	#.token: visual=note title=bold,left
+	#.iam: title=bold,left
 
-	[JWT|
+	[configure-aws-credentials]
+	[&lt;token&gt; JWT|
 	aud: sts.amazonaws.com
-	iss: token.github.com
+	iss: token.actions.githubusercontent.com
 	sub: repo:organizacao/repositorio
 	]
+	[&lt;token&gt; Token STS|Acesso à Role X]
+	[&lt;iam&gt; AWS IAM|Identity Providers]
 
-	[GitHub Actions]Emite-&gt;[JWT]
-	[JWT]&lt;-Acessa[&lt;abstract&gt; configure-aws-credentials]
+	[configure-aws-credentials] -&gt; Requisita um JWT [GitHub OIDC Provider]
+	[GitHub OIDC Provider] Emite -&gt; [JWT]
+	[JWT] --&gt; [configure-aws-credentials]
 
-	[configure-aws-credentials]-&gt;AssumeRole X[AWS IAM|Identity Providers]
-	[AWS IAM] Valida o JWT e retorna -&gt; [&lt;reference&gt; Token STS|Role X]
-	[Token STS]-&gt;Válido para a Role X[configure-aws-credentials]</desc>
-	<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Fira Sans" font-weight="normal" font-style="normal">
+	[configure-aws-credentials] -&gt; Invoca AssumeRole X [AWS IAM]
+	[AWS IAM] Valida o JWT e retorna -&gt; [Token STS]
+	[Token STS] --&gt; [configure-aws-credentials]</desc>
+	<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Fira Sans" font-weight="bold" font-style="normal">
 		<g font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#777">
 			<g stroke="transparent" fill="transparent">
-				<rect x="0.0" y="0.0" height="172.5" width="1376.0" stroke="none" />
+				<rect x="0.0" y="0.0" height="276.5" width="1044.0" stroke="none"></rect>
 			</g>
 			<g transform="translate(8, 8)" fill="#777">
 				<g transform="translate(20, 20)" fill="#777" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal">
-					<g class="fragment" data-fragment-index="1">
-						<text x="170.0" y="88.0" stroke="none">Emite</text>
-						<path d="M133.0 68.0 L153 68 L173 68 L173 68 L193 68 L193 68 L213 68 L213 68 L233 68 L233 68 L246.33333333333334 68 L246.3 68.0 " fill="none" />
-						<path d="M239.7 73.3 L246.3 68.0 L239.7 62.7 L253.0 68.0 Z" />
+					<g class="fragment fade-right" data-fragment-index="1">
+						<text x="192.7" y="12.5" stroke="none">Requisita um JWT</text>
+						<path d="M136.1 96.5 L246 20.5 L266 20.5 L266 20.5 L286 20.5 L286 20.5 L306 20.5 L306 20.5 L326 20.5 L326 20.5 L339.3333333333333 20.5 L339.3 20.5 " fill="none"></path>
+						<path d="M332.7 25.8 L339.3 20.5 L332.7 15.2 L346.0 20.5 Z"></path>
 					</g>
-					<g class="fragment" data-fragment-index="3">
-						<text x="546.5" y="60.0" stroke="none">Acessa</text>
-						<path d="M513.7 68.0 L527 68 L547 68 L547 68 L567 68 L567 68 L587 68 L587 68 L607 68 L607 68 L627 68 L627.0 68.0 " fill="none" />
-						<path d="M520.3 62.7 L513.7 68.0 L520.3 73.3 L507.0 68.0 Z" />
+					<g class="fragment fade-right" data-fragment-index="2">
+						<text x="550.0" y="12.5" stroke="none">Emite</text>
+						<path d="M542.0 20.5 L562 20.5 L582 20.5 L582 20.5 L602 20.5 L602 20.5 L622 20.5 L622 20.5 L642 20.5 L642 20.5 L655.4100249521114 22.551807096497914 L655.4 22.6 " fill="none"></path>
+						<path d="M648.0 26.8 L655.4 22.6 L649.6 16.3 L662.0 23.6 Z"></path>
 					</g>
-					<g class="fragment" data-fragment-index="5">
-						<text x="845.2" y="24.0" stroke="none">AssumeRole X</text>
-					</g>
-					<g class="fragment" data-fragment-index="4">
-						<text x="885.2" y="52.0" stroke="none">JWT</text>
-						<path d="M790.4 52.0 L861 32 L881 32 L881 32 L901 32 L901 32 L921 32 L921 32 L941 32 L941 32 L954.3333333333334 32 L954.3 32.0 " fill="none" />
-						<path d="M947.7 37.3 L954.3 32.0 L947.7 26.7 L961.0 32.0 Z" />
-					</g>
-					<g class="fragment" data-fragment-index="6">
-						<text x="1109.0" y="24.0" stroke="none">Valida o JWT e retorna</text>
-						<path d="M1101.0 32.0 L1121 32 L1141 32 L1141 32 L1161 32 L1161 32 L1181 32 L1181 32 L1201 32 L1201 32 L1215.080347846323 39.29341758946235 L1215.1 39.3 " fill="none" />
-						<path d="M1206.7 41.0 L1215.1 39.3 L1211.6 31.5 L1221.0 42.4 Z" />
-					</g>
-					<g class="fragment" data-fragment-index="8">
-						<text x="960.7" y="124.0" stroke="none">Válido para a Role X</text>
+					<g class="fragment fade-left" data-fragment-index="3">
 						<g stroke-dasharray="6 6">
-							<path d="M1221.0 93.6 L1201 104 L1181 104 L1181 104 L1161 104 L1161 104 L1141 104 L1141 104 L1121 104 L1121 104 L1031 104 L1031 104 L941 104 L941 104 L921 104 L921 104 L901 104 L901 104 L881 104 L881 104 L861 104 L861 104 L796.8584018059763 85.81812964578857 L796.9 85.8 " fill="none" />
+							<path d="M662.0 73.4 L642 76.5 L622 76.5 L622 76.5 L602 76.5 L602 76.5 L582 76.5 L582 76.5 L562 76.5 L562 76.5 L444 76.5 L444 76.5 L326 76.5 L326 76.5 L306 76.5 L306 76.5 L286 76.5 L286 76.5 L266 76.5 L266 76.5 L246 76.5 L246 76.5 L178.54620786673914 94.7581692992285 L178.5 94.8 " fill="none"></path>
 						</g>
-						<path d="M804.7 82.5 L796.9 85.8 L801.8 92.8 L790.4 84.0 Z" />
+						<path d="M183.6 87.9 L178.5 94.8 L186.4 98.2 L172.1 96.5 Z"></path>
 					</g>
-					<g data-name="JWT" class="fragment" data-fragment-index="1">
-						<g fill="#eee8d5" stroke="#777" data-name="JWT">
-							<rect x="253.0" y="19.5" height="97.0" width="254.0" data-name="JWT" />
-							<path d="M253.0 51.5 L507.0 51.5" fill="none" data-name="JWT" />
+					<g class="fragment fade-right" data-fragment-index="4">
+						<text x="185.2" y="168.5" stroke="none">Invoca AssumeRole X</text>
+						<path d="M172.1 128.5 L246 148.5 L266 148.5 L266 148.5 L286 148.5 L286 148.5 L306 148.5 L306 148.5 L326 148.5 L326 148.5 L360.3333333333333 148.5 L360.3 148.5 " fill="none"></path>
+						<path d="M353.7 153.8 L360.3 148.5 L353.7 143.2 L367.0 148.5 Z"></path>
+					</g>
+					<g class="fragment fade-right" data-fragment-index="5">
+						<text x="529.0" y="140.5" stroke="none">Valida o JWT e retorna</text>
+						<path d="M521.0 148.5 L562 148.5 L582 148.5 L582 148.5 L602 148.5 L602 148.5 L622 148.5 L622 148.5 L642 148.5 L642 148.5 L752.4587036233926 170.2295810406674 L752.5 170.2 " fill="none"></path>
+						<path d="M744.9 174.2 L752.5 170.2 L746.9 163.7 L759.0 171.5 Z"></path>
+					</g>
+					<g class="fragment fade-left" data-fragment-index="6">
+						<g stroke-dasharray="6 6">
+							<path d="M759.0 197.5 L642 220.5 L622 220.5 L622 220.5 L602 220.5 L602 220.5 L582 220.5 L582 220.5 L562 220.5 L562 220.5 L444 220.5 L444 220.5 L326 220.5 L326 220.5 L306 220.5 L306 220.5 L286 220.5 L286 220.5 L266 220.5 L266 220.5 L246 220.5 L246 220.5 L137.87898707694183 132.7024857466896 L137.9 132.7 " fill="none"></path>
 						</g>
-						<g transform="translate(253, 19.5)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="JWT">
-							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="JWT">
-								<text x="119.0" y="14.1" stroke="none" text-anchor="middle" data-name="JWT">JWT</text>
+						<path d="M146.4 132.8 L137.9 132.7 L139.7 141.0 L132.7 128.5 Z"></path>
+					</g>
+					<g data-name="configure-aws-credentials" class="fragment fade-right" data-fragment-index="0">
+						<g fill="#eee8d5" stroke="#777" data-name="configure-aws-credentials">
+							<rect x="0.0" y="96.5" height="32.0" width="226.0" data-name="configure-aws-credentials"></rect>
+						</g>
+						<g transform="translate(0, 96.5)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="configure-aws-credentials">
+							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="configure-aws-credentials">
+								<text x="105.0" y="14.1" stroke="none" text-anchor="middle" data-name="configure-aws-credentials">configure-aws-credentials</text>
 
 							</g>
 						</g>
-						<g transform="translate(253, 51.5)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal" data-name="JWT">
+					</g>
+					<g data-name="JWT" class="fragment fade-right" data-fragment-index="2">
+						<g fill="#eee8d5" stroke="#777" data-name="JWT">
+							<path d="M662.0 0.0 L980.0 0.0 L988.0 8.0 L988.0 97.0 L662.0 97.0 L662.0 0.0 Z" data-name="JWT"></path>
+							<path d="M980.0 0.0 L980.0 8.0 L988.0 8.0" fill="none" data-name="JWT"></path>
+							<path d="M662.0 32.0 L988.0 32.0" fill="none" data-name="JWT"></path>
+						</g>
+						<g transform="translate(662, 0)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="JWT">
+							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="JWT">
+								<text x="0.0" y="14.1" stroke="none" data-name="JWT">JWT</text>
+
+							</g>
+						</g>
+						<g transform="translate(662, 32)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal" data-name="JWT">
 							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="JWT">
 								<text x="0.0" y="14.1" stroke="none" data-name="JWT">aud: sts.amazonaws.com</text>
-								<text x="0.0" y="30.3" stroke="none" data-name="JWT">iss: token.github.com</text>
+								<text x="0.0" y="30.3" stroke="none" data-name="JWT">iss: token.actions.githubusercontent.com</text>
 								<text x="0.0" y="46.5" stroke="none" data-name="JWT">sub: repo:organizacao/repositorio</text>
 
 							</g>
 						</g>
 					</g>
-					<g data-name="GitHub Actions">
-						<g fill="#eee8d5" stroke="#777" data-name="GitHub Actions">
-							<rect x="0.0" y="52.0" height="32.0" width="133.0" data-name="GitHub Actions" />
+					<g data-name="Token STS" class="fragment fade-right" data-fragment-index="5">
+						<g fill="#eee8d5" stroke="#777" data-name="Token STS">
+							<path d="M759.0 152.5 L883.0 152.5 L891.0 160.5 L891.0 216.5 L759.0 216.5 L759.0 152.5 Z" data-name="Token STS"></path>
+							<path d="M883.0 152.5 L883.0 160.5 L891.0 160.5" fill="none" data-name="Token STS"></path>
+							<path d="M759.0 184.5 L891.0 184.5" fill="none" data-name="Token STS"></path>
 						</g>
-						<g transform="translate(0, 52)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="GitHub Actions">
-							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="GitHub Actions">
-								<text x="58.5" y="14.1" stroke="none" text-anchor="middle" data-name="GitHub Actions">GitHub Actions</text>
+						<g transform="translate(759, 152.5)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="Token STS">
+							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="Token STS">
+								<text x="0.0" y="14.1" stroke="none" data-name="Token STS">Token STS</text>
+
+							</g>
+						</g>
+						<g transform="translate(759, 184.5)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal" data-name="Token STS">
+							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="Token STS">
+								<text x="0.0" y="14.1" stroke="none" data-name="Token STS">Acesso à Role X</text>
 
 							</g>
 						</g>
 					</g>
-					<g data-name="configure-aws-credentials" class="fragment" data-fragment-index="2">
-						<g fill="#eee8d5" stroke="#777" data-name="configure-aws-credentials">
-							<rect x="627.0" y="52.0" height="32.0" width="214.0" data-name="configure-aws-credentials" />
-						</g>
-						<g transform="translate(627, 52)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="italic" data-name="configure-aws-credentials">
-							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="configure-aws-credentials">
-								<text x="99.0" y="14.1" stroke="none" text-anchor="middle" data-name="configure-aws-credentials">configure-aws-credentials</text>
-
-							</g>
-						</g>
-					</g>
-					<g data-name="AWS IAM" class="fragment" data-fragment-index="4">
+					<g data-name="AWS IAM" class="fragment fade-right" data-fragment-index="4">
 						<g fill="#eee8d5" stroke="#777" data-name="AWS IAM">
-							<rect x="961.0" y="0.0" height="64.0" width="140.0" data-name="AWS IAM" />
-							<path d="M961.0 32.0 L1101.0 32.0" fill="none" data-name="AWS IAM" />
+							<rect x="367.0" y="116.5" height="64.0" width="154.0" data-name="AWS IAM"></rect>
+							<path d="M367.0 148.5 L521.0 148.5" fill="none" data-name="AWS IAM"></path>
 						</g>
-						<g transform="translate(961, 0)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="AWS IAM">
-							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="AWS IAM">
-								<text x="62.0" y="14.1" stroke="none" text-anchor="middle" data-name="AWS IAM">AWS IAM</text>
+						<g transform="translate(367, 116.5)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="AWS IAM">
+							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="AWS IAM">
+								<text x="0.0" y="14.1" stroke="none" data-name="AWS IAM">AWS IAM</text>
 
 							</g>
 						</g>
-						<g transform="translate(961, 32)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal" data-name="AWS IAM">
+						<g transform="translate(367, 148.5)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal" data-name="AWS IAM">
 							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="AWS IAM">
 								<text x="0.0" y="14.1" stroke="none" data-name="AWS IAM">Identity Providers</text>
 
 							</g>
 						</g>
 					</g>
-					<g data-name="Token STS" class="fragment" data-fragment-index="7">
-						<g fill="#eee8d5" stroke="#777" stroke-dasharray="6 6" data-name="Token STS">
-							<rect x="1221.0" y="36.0" height="64.0" width="99.0" data-name="Token STS" />
-							<path d="M1221.0 68.0 L1320.0 68.0" fill="none" data-name="Token STS" />
+					<g data-name="GitHub OIDC Provider" class="fragment fade-right" data-fragment-index="1">
+						<g fill="#eee8d5" stroke="#777" data-name="GitHub OIDC Provider">
+							<rect x="346.0" y="4.5" height="32.0" width="196.0" data-name="GitHub OIDC Provider"></rect>
 						</g>
-						<g transform="translate(1221, 36)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="Token STS">
-							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="Token STS">
-								<text x="41.5" y="14.1" stroke="none" text-anchor="middle" data-name="Token STS">Token STS</text>
-
-							</g>
-						</g>
-						<g transform="translate(1221, 68)" font-family="Fira Sans" font-size="12pt" font-weight="normal" font-style="normal" data-name="Token STS">
-							<g transform="translate(8, 8)" fill="#777" text-align="left" data-name="Token STS">
-								<text x="0.0" y="14.1" stroke="none" data-name="Token STS">Role X</text>
-
+						<g transform="translate(346, 4.5)" font-family="Fira Sans" font-size="12pt" font-weight="bold" font-style="normal" data-name="GitHub OIDC Provider">
+							<g transform="translate(8, 8)" fill="#777" text-align="center" data-name="GitHub OIDC Provider">
+								<text x="90.0" y="14.1" stroke="none" text-anchor="middle" data-name="GitHub OIDC Provider">GitHub OIDC Provider</text>
 							</g>
 						</g>
 					</g>
